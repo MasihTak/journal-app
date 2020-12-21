@@ -1,21 +1,37 @@
 <template>
-  <Navigation></Navigation>
+  <JNavigation />
+  <JFooter />
   <router-view/>
 </template>
 
 
 
 <script>
-import Navigation from '@/components/Navigation'
+import JNavigation from '@/components/JNavigation'
+import JFooter from "@/components/JFooter";
+
 export default {
   components: {
-    Navigation,
+    JNavigation,
+    JFooter
   }
 }
 </script>
 
 
 <style>
+
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
