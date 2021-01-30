@@ -8,6 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <span class="nav-item align-self-center d-none d-md-block">|</span>
+          <li class="nav-item" v-show="!isAuth">
             <a class="nav-link" href="" @click.prevent="newJournal">Create A Note</a>
           </li>
         </ul>
@@ -15,8 +16,12 @@
           <li class="nav-item">
             <router-link class="nav-link text-primary" to="/log-in">Log In</router-link>
           </li>
+          <li class="nav-item" v-show="!isAuth">
             <router-link class="nav-link text-primary" to="/sign-up">Sign up</router-link>
           </li>
+          <!--
+            TODO: Add user name here
+          -->
         </ul>
       </div>
     </div>
