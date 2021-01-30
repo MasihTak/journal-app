@@ -8,15 +8,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <span class="nav-item align-self-center d-none d-md-block">|</span>
-          <li class="nav-item">
-            <a class="nav-link" href="">Create A Note</a>
+            <a class="nav-link" href="" @click.prevent="newJournal">Create A Note</a>
           </li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link class="nav-link text-primary" to="/log-in">Log In</router-link>
           </li>
-          <li class="nav-item">
             <router-link class="nav-link text-primary" to="/sign-up">Sign up</router-link>
           </li>
         </ul>
@@ -27,7 +25,17 @@
 
 <script>
 export default {
-  name: "Navigation"
+  name: "Navigation",
+  methods: {
+    newJournal() {
+      this.$store.commit('createNewJournal')
+    }
+  },
+  computed: {
+    isAuth() {
+      return this.$store.getters.userIsAuthenticated;
+    }
+  }
 }
 </script>
 
