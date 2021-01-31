@@ -28,8 +28,12 @@ export default {
             state.isNewJournal = true
         },
         publishNote(state) {
-            // state.notes.push(payload);
             state.notes.push(state.currentJournal)
+            state.currentJournal = {
+                    id: new Date().toISOString(),
+                    title: '',
+                    body: '',
+            };
             state.isNewNote = false;
             state.numberOfJournals ++;
         },
@@ -59,10 +63,13 @@ export default {
             context.commit('publishNote', payload);
         },
         editJournal(context, payload) {
-            context.commit('editJournal', payload)
+            context.commit('editJournal', payload);
         },
         deleteJournal(context, payload) {
             context.commit('deleteJournal', payload);
+        },
+        closeNote(context) {
+            context.commit('closeNote');
         }
     },
     getters: {

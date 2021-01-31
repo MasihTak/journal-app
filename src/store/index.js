@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 import journalsModule from "./modules/journals";
 
 export default createStore({
-    strict: true,
     state: {
         isLoggedIn: false,
     },

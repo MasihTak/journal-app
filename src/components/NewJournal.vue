@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="saveNote">
+  <form @submit.prevent="AddJournal">
     <button type="button" class="btn btn-warning btn-close position-absolute"
             @click.prevent="closeNote"
     ></button>
@@ -41,10 +41,10 @@ export default {
   },
   methods: {
     closeNote() {
-      this.$store.commit('closeNote')
+      this.$store.dispatch('closeNote')
     },
-    saveNote() {
-      this.$store.commit('publishNote')
+    AddJournal() {
+      this.$store.dispatch('publishNote')
     }
   },
 }
